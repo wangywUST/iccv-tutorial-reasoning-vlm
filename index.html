@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     body {
-      padding-top: 70px;
+      padding-top: 70px; /* 恢复padding，但精确匹配导航栏高度 */
+      margin: 0;
     }
     
     #header {
@@ -16,6 +17,7 @@
       backdrop-filter: blur(10px);
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
       z-index: 1000;
+      height: 70px; /* 明确设置导航栏高度为70px */
     }
     
     .navbar-brand {
@@ -66,6 +68,7 @@
       color: white;
       padding: 100px 0;
       text-align: center;
+      margin-top: 0; /* 确保没有上边距 */
     }
     
     #hero h1 {
