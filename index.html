@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Towards Comprehensive Reasoning in Vision-Language Models | ICCV 2025</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      padding-top: 70px;
+    }
+    
+    #header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #2c3e50;
+      text-decoration: none;
+    }
+    
+    .navbar-brand:hover {
+      color: #3498db;
+    }
+    
+    /* Fallback ICCV logo using CSS */
+    .iccv-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    
+    .nav-link {
+      color: #2c3e50 !important;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: #3498db !important;
+    }
+    
+    .navbar-nav .nav-item.active .nav-link {
+      color: #3498db !important;
+      font-weight: 600;
+    }
+    
+    #hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+    }
+    
+    #hero h1 {
+      font-size: 2.5em;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+    
+    #hero h5 {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    
+    #hero p {
+      font-size: 1.1em;
+      opacity: 0.8;
+    }
+    
+    .section {
+      padding: 60px 0;
+    }
+    
+    .section:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    
+    .section h2 {
+      color: #2c3e50;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+    
+    .table-striped > tbody > tr:nth-of-type(odd) > td {
+      background-color: rgba(102, 126, 234, 0.05);
+    }
+    
+    .programme .title {
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+    
+    .programme .abstract {
+      text-align: justify;
+      margin-bottom: 15px;
+      color: #555;
+      line-height: 1.6;
+    }
+    
+    .card {
+      border: none;
+      box-shadow: none;
+      background: transparent;
+      transition: transform 0.3s ease;
+      margin-bottom: 25px;
+      max-width: 240px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .card:hover {
+      transform: translateY(-3px);
+    }
+    
+    .card-img-top {
+      height: 160px;
+      width: 130px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 15px auto 0;
+      display: block;
+    }
+    
+    .card-title {
+      color: #2c3e50;
+      font-weight: 600;
+    }
+    
+    .card-text {
+      color: #6c757d;
+      font-size: 0.8em;
+    }
+    
+    .list-inline-item a {
+      color: #667eea;
+      font-size: 1.2em;
+      margin: 0 5px;
+      transition: color 0.3s ease;
+    }
+    
+    .list-inline-item a:hover {
+      color: #3498db;
+    }
+    
+    #footer {
+      background: #2c3e50;
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+    
+    #footer p {
+      margin: 0;
+      opacity: 0.8;
+    }
+    
+    .table th {
+      background-color: #667eea;
+      color: white;
+      border: none;
+      font-weight: 500;
+    }
+    
+    .table td {
+      border-color: #e9ecef;
+      vertical-align: middle;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      #hero h1 {
+        font-size: 2em;
+      }
+      
+      #hero h5 {
+        font-size: 1.2em;
+      }
+      
+      .section {
+        padding: 40px 0;
+      }
+      
+      .card-img-top {
+        height: 140px;
+        width: 115px;
+      }
+      
+      .card {
+        max-width: 220px;
+      }
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <div id="header" class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a href="#" class="navbar-brand">
+          <div class="iccv-logo">ICCV</div>
+          Vision-Language Tutorial
+      </a>
+      <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbar" class="offcanvas offcanvas-end">
+        <div class="offcanvas-header border-bottom">
+          <h5 class="offcanvas-title">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#intro">Introduction</a></li>
+            <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+            <li class="nav-item"><a class="nav-link" href="#organizers">Organizers</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="content">
+    <div id="hero">
+      <div class="container">
+        <h1>Towards Comprehensive Reasoning in Vision-Language Models</h1>
+        <h5>ICCV 2025 Tutorial</h5>
+        <p>
+          <i class="fa fa-calendar-days"></i> 10/30/2025 9:00-17:00 (GMT-5)<br>
+          <i class="fa fa-location-dot"></i> Room 204
+        </p>
+      </div>
+    </div>
+
+    <div id="intro" class="section">
+      <div class="container">
+        <h2>Introduction</h2>
+        <p style="font-size: 1.1em; line-height: 1.8; text-align: justify;">
+          Vision-Language Models (VLMs) have achieved remarkable progress in image captioning and visual question answering, yet developing genuine reasoning capabilities remains an open challenge. Unlike recent breakthroughs in reasoning-focused LLMs such as OpenAI's O1 and DeepSeek-R1, many VLMs still rely primarily on pattern recognition and struggle with compositional logic. This tutorial provides a comprehensive overview of reasoning capabilities in VLMs, focusing on the transition from basic perception to complex inference. We will explore reasoning-oriented prompting and training techniques in multimodal contexts, reasoning-focused benchmarks, and architectural innovations for visual-textual fusion. Through lectures and hands-on demonstrations, participants will gain insights into current capabilities, persistent challenges in compositional generalization and explainability, and practical guidance for implementing reasoning mechanisms. This tutorial uniquely bridges advances in LLM reasoning with the visual domain, addressing the distinct challenges of spatial information processing and providing a roadmap toward more cognitively capable vision-language systems.
+        </p>
+      </div>
+    </div>
+
+    <div id="schedule" class="section">
+      <div class="container">
+        <h2>Vision-Language Reasoning Tutorial Schedule</h2>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 20%;">Time</th>
+                <th scope="col">Programme</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>9:00 - 9:30</strong></td>
+                <td class="programme">
+                  <p class="title">Introduction to Vision-Language Reasoning</p>
+                  <p class="abstract">Comprehensive introduction covering definitions, taxonomy of reasoning types, key differences between perception and reasoning in Vision-Language Models (VLMs), and connections to reasoning-focused LLMs like O1 and DeepSeek-R1. This session establishes the foundational concepts and scope of vision-language reasoning.</p>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>9:30 - 10:15</strong></td>
+                <td class="programme">
+                  <p class="title">Enhancing Reasoning Capabilities in VLMs</p>
+                  <p class="abstract">Deep dive into advanced techniques for improving reasoning in vision-language models, including chain-of-thought techniques, Visual Chain-of-Thought (CoT), reasoning engines, Visual Program Distillation (VPD), and interactive reasoning approaches. Practical examples and implementation strategies will be discussed.</p>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>10:15 - 10:45</strong></td>
+                <td><em>Coffee Break & Demonstrations</em></td>
+              </tr>
+              <tr>
+                <td><strong>10:45 - 11:30</strong></td>
+                <td class="programme">
+                  <p class="title">Dataset Design & Model Architectures</p>
+                  <p class="abstract">Exploration of reasoning-focused benchmarks (MMBench, MMMU) and their design principles. Overview of key multimodal architectures including Flamingo, BLIP-2, and LLaVA, with focus on object-level grounding and spatial feature mixing techniques that enable better reasoning capabilities.</p>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>11:30 - 12:15</strong></td>
+                <td class="programme">
+                  <p class="title">Future Directions and Open Challenges</p>
+                  <p class="abstract">Discussion of emerging challenges and opportunities in vision-language reasoning, including compositional generalization, explainability requirements, multi-modal reasoning across video/3D/audio modalities, integration of external knowledge bases, and approaches to improve model efficiency while maintaining reasoning capabilities.</p>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>12:15 - 12:30</strong></td>
+                <td><em>Q&A and Closing Remarks</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="organizers" class="section">
+      <div class="container">
+        <h2>Organizers</h2>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="card">
+              <img src="assets/images/avatars/yujuncai.png" class="card-img-top" alt="Yujun Cai">
+              <div class="card-body">
+                <h5 class="card-title">Yujun Cai</h5>
+                <p class="card-text">University of Queensland</p>
+                <ul class="list-inline text-center">
+                  <li class="list-inline-item"><a href="//vanoracai.github.io/" target="_blank"><i class="fa fa-house"></i></a></li>
+                  <li class="list-inline-item"><a href="https://scholar.google.com/citations?user=TE7lbQwAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
+                  <li class="list-inline-item"><a href="//vanoracai.github.io/" target="_blank"><i class="fab fa-github"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="card">
+              <img src="assets/images/avatars/junliu.jpg" class="card-img-top" alt="Jun Liu">
+              <div class="card-body">
+                <h5 class="card-title">Jun Liu</h5>
+                <p class="card-text">Lancaster University</p>
+                <ul class="list-inline text-center">
+                  <li class="list-inline-item"><a href="https://wp.lancs.ac.uk/vl/" target="_blank"><i class="fa fa-house"></i></a></li>
+                  <li class="list-inline-item"><a href="https://scholar.google.com/citations?user=Q5Ild8UAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
+                  <li class="list-inline-item"><a href="https://wp.lancs.ac.uk/vl/" target="_blank"><i class="fab fa-github"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="card">
+              <img src="assets/images/avatars/yiweiwang.jpg" class="card-img-top" alt="Yiwei Wang">
+              <div class="card-body">
+                <h5 class="card-title">Yiwei Wang</h5>
+                <p class="card-text">University of California at Merced</p>
+                <ul class="list-inline text-center">
+                  <li class="list-inline-item"><a href="https://wangywust.github.io/" target="_blank"><i class="fa fa-house"></i></a></li>
+                  <li class="list-inline-item"><a href="https://scholar.google.com/citations?user=Sh9QvBkAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
+                  <li class="list-inline-item"><a href="https://wangywust.github.io/" target="_blank"><i class="fab fa-github"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="card">
+              <img src="assets/images/avatars/minghsuanyang.jpg" class="card-img-top" alt="Ming-Hsuan Yang">
+              <div class="card-body">
+                <h5 class="card-title">Ming-Hsuan Yang</h5>
+                <p class="card-text">Google DeepMind & UC Merced</p>
+                <ul class="list-inline text-center">
+                  <li class="list-inline-item"><a href="https://faculty.ucmerced.edu/mhyang/" target="_blank"><i class="fa fa-house"></i></a></li>
+                  <li class="list-inline-item"><a href="https://scholar.google.com/citations?hl=en&user=p9-ohHsAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
+                  <li class="list-inline-item"><a href="https://faculty.ucmerced.edu/mhyang/" target="_blank"><i class="fab fa-github"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <div class="container">
+      <p>&copy;2025 <em>Towards Comprehensive Reasoning in Vision-Language Models</em> Tutorial</p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $(document).on('scroll', function() {
+      let currentOffset = $(window).scrollTop() + 80,
+          currentSection = "",
+          sections = ["intro", "schedule", "organizers"];
+
+      for (let i = 0; i < sections.length; ++i) {
+        if ($('#' + sections[i]).length && currentOffset < $('#' + sections[i]).offset().top) {
+          break;
+        }
+        currentSection = sections[i];
+      }
+
+      let $navbar = $('.navbar'),
+          $navLinks = $navbar.find('a');
+
+      $navLinks.parent().removeClass('active');
+      $navLinks.each(function() {
+        if ($(this).attr('href') === '#' + currentSection) {
+          $(this).parent().addClass('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
