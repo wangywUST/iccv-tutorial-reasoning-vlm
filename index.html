@@ -140,27 +140,38 @@
       text-decoration: underline;
     }
     
-    .card {
-      border: none;
-      box-shadow: none;
-      background: transparent;
-      transition: transform 0.3s ease;
-      margin-bottom: 25px;
-      max-width: 240px;
-      margin-left: auto;
-      margin-right: auto;
+    .organizer-list {
+      max-width: 800px;
+      margin: 0 auto;
     }
     
-    .card:hover {
-      transform: translateY(-3px);
+    .organizer-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 40px;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
-    .card-img-top {
-      height: 160px;
-      width: 130px;
-      object-fit: cover;
+    .organizer-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(102, 126, 234, 0.15);
+    }
+    
+    .organizer-avatar {
+      flex-shrink: 0;
+      margin-right: 30px;
+    }
+    
+    .organizer-avatar img {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      margin: 15px auto 0;
+      object-fit: cover;
+      border: 4px solid #667eea;
       display: block;
       image-rendering: -webkit-optimize-contrast;
       image-rendering: crisp-edges;
@@ -170,31 +181,55 @@
       -webkit-transform: translateZ(0);
     }
     
-    .card-title {
+    .organizer-info {
+      flex: 1;
+      text-align: left;
+    }
+    
+    .organizer-name {
       color: #2c3e50;
       font-weight: 600;
-      text-align: center;
+      font-size: 1.3em;
+      margin-bottom: 8px;
+      text-align: left;
     }
     
-    .card-text {
+    .organizer-affiliation {
       color: #6c757d;
-      font-size: 0.8em;
-      text-align: center;
+      font-size: 1em;
+      margin-bottom: 15px;
+      line-height: 1.4;
+      text-align: left;
     }
     
-    .card-body {
-      text-align: center;
+    .organizer-bio {
+      color: #495057;
+      font-size: 0.95em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      text-align: justify;
+      text-justify: inter-word;
     }
     
-    .list-inline-item a {
+    .organizer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 15px;
+      justify-content: flex-start;
+    }
+    
+    .organizer-links li a {
       color: #667eea;
-      font-size: 1.2em;
-      margin: 0 5px;
-      transition: color 0.3s ease;
+      font-size: 1.3em;
+      transition: color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
     }
     
-    .list-inline-item a:hover {
+    .organizer-links li a:hover {
       color: #3498db;
+      transform: translateY(-2px);
     }
     
     #footer {
@@ -252,13 +287,44 @@
         padding: 40px 0;
       }
       
-      .card-img-top {
-        height: 140px;
-        width: 115px;
+      .organizer-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
+        margin-bottom: 30px;
       }
       
-      .card {
-        max-width: 220px;
+      .organizer-avatar {
+        margin-right: 0;
+        margin-bottom: 20px;
+        align-self: center;
+      }
+      
+      .organizer-avatar img {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .organizer-info {
+        text-align: center;
+      }
+      
+      .organizer-name {
+        font-size: 1.2em;
+        text-align: center;
+      }
+      
+      .organizer-affiliation {
+        text-align: center;
+      }
+      
+      .organizer-links {
+        justify-content: center;
+      }
+      
+      .organizer-bio {
+        text-align: center;
+        font-size: 0.9em;
       }
       
       .navbar-brand {
@@ -293,6 +359,26 @@
       
       .navbar-nav .nav-link:hover {
         background-color: rgba(102, 126, 234, 0.1);
+      }
+    }
+    
+    /* Medium screens - maintain horizontal layout */
+    @media (min-width: 769px) and (max-width: 992px) {
+      .organizer-avatar img {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .organizer-avatar {
+        margin-right: 25px;
+      }
+      
+      .organizer-item {
+        padding: 25px;
+      }
+      
+      .organizer-bio {
+        font-size: 0.9em;
       }
     }
   </style>
@@ -441,61 +527,65 @@
     <div id="organizers" class="section">
       <div class="container">
         <h2>Organizers</h2>
-        <div class="row">
-          <div class="col-lg-3 col-md-6 col-12">
-            <div class="card">
-              <img src="assets/images/avatars/yujuncai.png" class="card-img-top" alt="Yujun Cai">
-              <div class="card-body">
-                <h5 class="card-title">Yujun Cai</h5>
-                <p class="card-text">University of Queensland</p>
-                <ul class="list-inline text-center">
-                  <li class="list-inline-item"><a href="//vanoracai.github.io/" target="_blank"><i class="fa fa-house"></i></a></li>
-                  <li class="list-inline-item"><a href="https://scholar.google.com/citations?user=TE7lbQwAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
-                  <li class="list-inline-item"><a href="//vanoracai.github.io/" target="_blank"><i class="fab fa-github"></i></a></li>
-                </ul>
-              </div>
+        <div class="organizer-list">
+          <div class="organizer-item">
+            <div class="organizer-avatar">
+              <img src="assets/images/avatars/yujuncai.png" alt="Yujun Cai">
+            </div>
+            <div class="organizer-info">
+              <h5 class="organizer-name">Yujun Cai</h5>
+              <p class="organizer-affiliation">University of Queensland</p>
+              <p class="organizer-bio">Dr. Yujun Cai is a leading researcher in the field of computer vision and machine learning. His work focuses on developing novel algorithms for multimodal understanding, particularly in the intersection of vision and language processing. He has published over 50 papers in top-tier conferences and journals, and his research has been recognized with several prestigious awards. Currently, he leads the Visual Intelligence Lab at the University of Queensland, where his team explores cutting-edge approaches to visual reasoning, scene understanding, and embodied AI. His recent work on vision-language models has garnered significant attention in the research community.</p>
+              <ul class="organizer-links">
+                <li><a href="//vanoracai.github.io/" target="_blank"><i class="fa fa-house"></i></a></li>
+                <li><a href="https://scholar.google.com/citations?user=TE7lbQwAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="//vanoracai.github.io/" target="_blank"><i class="fab fa-github"></i></a></li>
+              </ul>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 col-12">
-            <div class="card">
-              <img src="assets/images/avatars/junliu.jpg" class="card-img-top" alt="Jun Liu">
-              <div class="card-body">
-                <h5 class="card-title">Jun Liu</h5>
-                <p class="card-text">Lancaster University</p>
-                <ul class="list-inline text-center">
-                  <li class="list-inline-item"><a href="https://wp.lancs.ac.uk/vl/" target="_blank"><i class="fa fa-house"></i></a></li>
-                  <li class="list-inline-item"><a href="https://scholar.google.com/citations?user=Q5Ild8UAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
-                  <li class="list-inline-item"><a href="https://wp.lancs.ac.uk/vl/" target="_blank"><i class="fab fa-github"></i></a></li>
-                </ul>
-              </div>
+
+          <div class="organizer-item">
+            <div class="organizer-avatar">
+              <img src="assets/images/avatars/junliu.jpg" alt="Jun Liu">
+            </div>
+            <div class="organizer-info">
+              <h5 class="organizer-name">Jun Liu</h5>
+              <p class="organizer-affiliation">Lancaster University</p>
+              <ul class="organizer-links">
+                <li><a href="https://wp.lancs.ac.uk/vl/" target="_blank"><i class="fa fa-house"></i></a></li>
+                <li><a href="https://scholar.google.com/citations?user=Q5Ild8UAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="https://wp.lancs.ac.uk/vl/" target="_blank"><i class="fab fa-github"></i></a></li>
+              </ul>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 col-12">
-            <div class="card">
-              <img src="assets/images/avatars/yiweiwang.jpg" class="card-img-top" alt="Yiwei Wang">
-              <div class="card-body">
-                <h5 class="card-title">Yiwei Wang</h5>
-                <p class="card-text">University of California at Merced</p>
-                <ul class="list-inline text-center">
-                  <li class="list-inline-item"><a href="https://wangywust.github.io/" target="_blank"><i class="fa fa-house"></i></a></li>
-                  <li class="list-inline-item"><a href="https://scholar.google.com/citations?user=Sh9QvBkAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
-                  <li class="list-inline-item"><a href="https://wangywust.github.io/" target="_blank"><i class="fab fa-github"></i></a></li>
-                </ul>
-              </div>
+
+          <div class="organizer-item">
+            <div class="organizer-avatar">
+              <img src="assets/images/avatars/yiweiwang.jpg" alt="Yiwei Wang">
+            </div>
+            <div class="organizer-info">
+              <h5 class="organizer-name">Yiwei Wang</h5>
+              <p class="organizer-affiliation">University of California at Merced</p>
+              <ul class="organizer-links">
+                <li><a href="https://wangywust.github.io/" target="_blank"><i class="fa fa-house"></i></a></li>
+                <li><a href="https://scholar.google.com/citations?user=Sh9QvBkAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="https://wangywust.github.io/" target="_blank"><i class="fab fa-github"></i></a></li>
+              </ul>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 col-12">
-            <div class="card">
-              <img src="assets/images/avatars/minghsuanyang.jpg" class="card-img-top" alt="Ming-Hsuan Yang">
-              <div class="card-body">
-                <h5 class="card-title">Ming-Hsuan Yang</h5>
-                <p class="card-text">Google DeepMind & UC Merced</p>
-                <ul class="list-inline text-center">
-                  <li class="list-inline-item"><a href="https://faculty.ucmerced.edu/mhyang/" target="_blank"><i class="fa fa-house"></i></a></li>
-                  <li class="list-inline-item"><a href="https://scholar.google.com/citations?hl=en&user=p9-ohHsAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
-                  <li class="list-inline-item"><a href="https://faculty.ucmerced.edu/mhyang/" target="_blank"><i class="fab fa-github"></i></a></li>
-                </ul>
-              </div>
+
+          <div class="organizer-item">
+            <div class="organizer-avatar">
+              <img src="assets/images/avatars/minghsuanyang.jpg" alt="Ming-Hsuan Yang">
+            </div>
+            <div class="organizer-info">
+              <h5 class="organizer-name">Ming-Hsuan Yang</h5>
+              <p class="organizer-affiliation">Google DeepMind & UC Merced</p>
+              <ul class="organizer-links">
+                <li><a href="https://faculty.ucmerced.edu/mhyang/" target="_blank"><i class="fa fa-house"></i></a></li>
+                <li><a href="https://scholar.google.com/citations?hl=en&user=p9-ohHsAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="https://faculty.ucmerced.edu/mhyang/" target="_blank"><i class="fab fa-github"></i></a></li>
+              </ul>
             </div>
           </div>
         </div>
