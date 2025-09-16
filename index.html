@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     body {
-      padding-top: 70px; /* æ¢å¤paddingï¼Œä½†ç²¾ç¡®åŒ¹é…å¯¼èˆªæ é«˜åº¦ */
+      padding-top: 70px;
       margin: 0;
     }
     
@@ -17,7 +17,7 @@
       backdrop-filter: blur(10px);
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
       z-index: 1000;
-      height: 70px; /* æ˜Žç¡®è®¾ç½®å¯¼èˆªæ é«˜åº¦ä¸º70px */
+      height: 70px;
     }
     
     .navbar-brand {
@@ -75,7 +75,7 @@
       color: white;
       padding: 100px 0;
       text-align: center;
-      margin-top: 0; /* ç¡®ä¿æ²¡æœ‰ä¸Šè¾¹è· */
+      margin-top: 0;
     }
     
     #hero h1 {
@@ -114,7 +114,7 @@
     }
     
     .programme .title {
-      font-weight: bold;
+      font-weight: normal;
       color: #2c3e50;
       margin: 0;
       font-size: 1.1em;
@@ -125,6 +125,17 @@
       font-weight: 500;
       font-size: 0.95em;
       margin: 0;
+    }
+    
+    .speaker-text a {
+      color: #667eea;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .speaker-text a:hover {
+      color: #3498db;
+      text-decoration: underline;
     }
     
     .card {
@@ -207,9 +218,14 @@
       border-color: #e9ecef;
       vertical-align: middle;
       text-align: center;
+      font-weight: normal;
     }
     
     .table td.programme {
+      text-align: left;
+    }
+    
+    .table td.speaker {
       text-align: left;
     }
     
@@ -236,9 +252,8 @@
         max-width: 220px;
       }
       
-      /* æ‰‹æœºç«¯å¯¼èˆªæ æ–‡å­—ç¼©å° */
       .navbar-brand {
-        font-size: 0.9em; /* ç¼©å°å"ç‰Œåç§°å­—ä½" */
+        font-size: 0.9em;
       }
       
       .navbar-brand .iccv-logo {
@@ -248,7 +263,6 @@
         margin-right: 6px;
       }
       
-      /* æ‰‹æœºç«¯ä¸‹æ‹‰èœå•èƒŒæ™¯ */
       .navbar-collapse {
         background-color: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(10px);
@@ -331,58 +345,58 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>8:00 - 8:10</strong></td>
+                <td>8:00 - 8:10</td>
                 <td class="programme">
                   <p class="title">Motivation and Overview</p>
                 </td>
-                <td>
-                  <p class="speaker-text">Ming-Hsuan Yang</p>
+                <td class="speaker">
+                  <p class="speaker-text"><a href="https://vanoracai.github.io/" target="_blank">Yujun Cai</a></p>
                 </td>
               </tr>
 
               <tr>
-                <td><strong>9:00 - 9:30</strong></td>
+                <td>9:00 - 9:30</td>
                 <td class="programme">
                   <p class="title">Introduction to Vision-Language Reasoning</p>
                 </td>
-                <td>
-                  <p class="speaker-text">Yujun Cai</p>
+                <td class="speaker">
+                  <p class="speaker-text"><a href="https://vanoracai.github.io/" target="_blank">Yujun Cai</a></p>
                 </td>
               </tr>
               <tr>
-                <td><strong>9:30 - 10:15</strong></td>
+                <td>9:30 - 10:15</td>
                 <td class="programme">
                   <p class="title">Enhancing Reasoning Capabilities in VLMs</p>
                 </td>
-                <td>
-                  <p class="speaker-text">Jun Liu</p>
+                <td class="speaker">
+                  <p class="speaker-text"><a href="https://wp.lancs.ac.uk/vl/" target="_blank">Jun Liu</a></p>
                 </td>
               </tr>
               <tr>
-                <td><strong>10:15 - 10:45</strong></td>
+                <td>10:15 - 10:45</td>
                 <td><em>Coffee Break & Demonstrations</em></td>
                 <td>—</td>
               </tr>
               <tr>
-                <td><strong>10:45 - 11:30</strong></td>
+                <td>10:45 - 11:30</td>
                 <td class="programme">
                   <p class="title">Dataset Design & Model Architectures</p>
                 </td>
-                <td>
-                  <p class="speaker-text">Yiwei Wang</p>
+                <td class="speaker">
+                  <p class="speaker-text"><a href="https://wangywust.github.io/" target="_blank">Yiwei Wang</a></p>
                 </td>
               </tr>
               <tr>
-                <td><strong>11:30 - 12:15</strong></td>
+                <td>11:30 - 12:15</td>
                 <td class="programme">
                   <p class="title">Future Directions and Open Challenges</p>
                 </td>
-                <td>
+                <td class="speaker">
                   <p class="speaker-text">All Organizers</p>
                 </td>
               </tr>
               <tr>
-                <td><strong>12:15 - 12:30</strong></td>
+                <td>12:15 - 12:30</td>
                 <td><em>Q&A and Closing Remarks</em></td>
                 <td>—</td>
               </tr>
