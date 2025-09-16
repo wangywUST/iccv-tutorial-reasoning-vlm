@@ -120,23 +120,11 @@
       font-size: 1.1em;
     }
     
-    .programme .speaker {
+    .speaker-text {
       color: #667eea;
       font-weight: 500;
       font-size: 0.95em;
       margin: 0;
-    }
-    
-    .programme-cell {
-      display: flex;
-      align-items: center;
-      height: 100%;
-    }
-    
-    .speaker-cell {
-      display: flex;
-      align-items: center;
-      height: 100%;
     }
     
     .card {
@@ -218,6 +206,11 @@
     .table td {
       border-color: #e9ecef;
       vertical-align: middle;
+      text-align: center;
+    }
+    
+    .table td.programme {
+      text-align: left;
     }
     
     /* Responsive adjustments */
@@ -339,59 +332,59 @@
             <tbody>
               <tr>
                 <td><strong>8:00 - 8:10</strong></td>
-                <td class="programme-cell">
+                <td class="programme">
                   <p class="title">Motivation and Overview</p>
                 </td>
-                <td class="speaker-cell">
-                  <p class="speaker">Ming-Hsuan Yang</p>
+                <td>
+                  <p class="speaker-text">Ming-Hsuan Yang</p>
                 </td>
               </tr>
 
               <tr>
                 <td><strong>9:00 - 9:30</strong></td>
-                <td class="programme-cell">
+                <td class="programme">
                   <p class="title">Introduction to Vision-Language Reasoning</p>
                 </td>
-                <td class="speaker-cell">
-                  <p class="speaker">Yujun Cai</p>
+                <td>
+                  <p class="speaker-text">Yujun Cai</p>
                 </td>
               </tr>
               <tr>
                 <td><strong>9:30 - 10:15</strong></td>
-                <td class="programme-cell">
+                <td class="programme">
                   <p class="title">Enhancing Reasoning Capabilities in VLMs</p>
                 </td>
-                <td class="speaker-cell">
-                  <p class="speaker">Jun Liu</p>
+                <td>
+                  <p class="speaker-text">Jun Liu</p>
                 </td>
               </tr>
               <tr>
                 <td><strong>10:15 - 10:45</strong></td>
-                <td style="text-align: center;"><em>Coffee Break & Demonstrations</em></td>
-                <td style="text-align: center;">—</td>
+                <td><em>Coffee Break & Demonstrations</em></td>
+                <td>—</td>
               </tr>
               <tr>
                 <td><strong>10:45 - 11:30</strong></td>
-                <td class="programme-cell">
+                <td class="programme">
                   <p class="title">Dataset Design & Model Architectures</p>
                 </td>
-                <td class="speaker-cell">
-                  <p class="speaker">Yiwei Wang</p>
+                <td>
+                  <p class="speaker-text">Yiwei Wang</p>
                 </td>
               </tr>
               <tr>
                 <td><strong>11:30 - 12:15</strong></td>
-                <td class="programme-cell">
+                <td class="programme">
                   <p class="title">Future Directions and Open Challenges</p>
                 </td>
-                <td class="speaker-cell">
-                  <p class="speaker">All Organizers</p>
+                <td>
+                  <p class="speaker-text">All Organizers</p>
                 </td>
               </tr>
               <tr>
                 <td><strong>12:15 - 12:30</strong></td>
-                <td style="text-align: center;"><em>Q&A and Closing Remarks</em></td>
-                <td style="text-align: center;">—</td>
+                <td><em>Q&A and Closing Remarks</em></td>
+                <td>—</td>
               </tr>
             </tbody>
           </table>
