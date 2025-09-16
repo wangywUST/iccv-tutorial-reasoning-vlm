@@ -121,16 +121,18 @@
     }
     
     .speaker-text {
-      color: #667eea;
+      color: #2c3e50;
       font-weight: 500;
-      font-size: 0.95em;
+      font-size: 1em;
       margin: 0;
+      line-height: 1.4;
     }
     
     .speaker-text a {
       color: #667eea;
       text-decoration: none;
       transition: color 0.3s ease;
+      font-weight: 600;
     }
     
     .speaker-text a:hover {
@@ -227,6 +229,13 @@
     
     .table td.speaker {
       text-align: left;
+    }
+    
+    /* Left align the time column */
+    .table td.time {
+      text-align: left;
+      font-weight: 600;
+      color: #2c3e50;
     }
     
     /* Responsive adjustments */
@@ -345,7 +354,7 @@
             </thead>
             <tbody>
               <tr>
-                <td>8:00 - 8:10</td>
+                <td class="time">8:00 - 8:10</td>
                 <td class="programme">
                   <p class="title">Motivation and Overview</p>
                 </td>
@@ -355,7 +364,7 @@
               </tr>
 
               <tr>
-                <td>8:10 - 8:40</td>
+                <td class="time">8:10 - 8:40</td>
                 <td class="programme">
                   <p class="title">Result Announcement and Award Ceremony of Video-TT Challenge: Towards Advanced Video Reasoning and Understanding (https://sites.google.com/view/video-tt-challenge)</p>
                 </td>
@@ -365,7 +374,7 @@
               </tr>
 
               <tr>
-                <td>8:40 - 9:10</td>
+                <td class="time">8:40 - 9:10</td>
                 <td class="programme">
                   <p class="title">Reasoning in Multimodal GUI Agents: An Exploration-Driven Perspective</p>
                 </td>
@@ -375,16 +384,17 @@
               </tr>
 
               <tr>
-                <td>9:10 - 9:50</td>
+                <td class="time">9:10 - 9:50</td>
                 <td class="programme">
                   <p class="title">LMMs-Lab: Building Multimodal Intelligence</p>
                 </td>
                 <td class="speaker">
                   <p class="speaker-text"><a href="https://liuziwei7.github.io/" target="_blank">Ziwei Liu</a></p>
                 </td>
-
               </tr>
-                <td>9:50 - 10:30</td>
+
+              <tr>
+                <td class="time">9:50 - 10:30</td>
                 <td class="programme">
                   <p class="title">TBD</p>
                 </td>
@@ -392,10 +402,9 @@
                   <p class="speaker-text"><a href="https://wangywust.github.io/" target="_blank">Kai-Wei Chang</a></p>
                 </td>
               </tr>
-              <tr>
 
-              </tr>
-                <td>10:30 - 11:10</td>
+              <tr>
+                <td class="time">10:30 - 11:10</td>
                 <td class="programme">
                   <p class="title">TBD</p>
                 </td>
@@ -403,9 +412,9 @@
                   <p class="speaker-text"><a href="https://cse.buffalo.edu/~jsyuan/" target="_blank">Junsong Yuan</a></p>
                 </td>
               </tr>
-              <tr>
 
-                <td>11:10 - 11:50</td>
+              <tr>
+                <td class="time">11:10 - 11:50</td>
                 <td class="programme">
                   <p class="title">TBD</p>
                 </td>
@@ -413,10 +422,11 @@
                   <p class="speaker-text"><a href="https://faculty.ucmerced.edu/mhyang/" target="_blank">Ming-Hsuan Yang</a></p>
                 </td>
               </tr>
+
               <tr>
-                <td>11:50 - 12:00</td>
-                <td><em>Closing Remark</em></td>
-                <td>—</td>
+                <td class="time">11:50 - 12:00</td>
+                <td class="programme"><em>Closing Remark</em></td>
+                <td class="speaker">—</td>
               </tr>
             </tbody>
           </table>
