@@ -240,6 +240,107 @@
       transform: translateY(-2px);
     }
     
+    /* Speaker styles (same as organizer styles for consistency) */
+    .speaker-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .speaker-item {
+      display: flex;
+      align-items: center;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+    
+    .speaker-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(102, 126, 234, 0.15);
+    }
+    
+    .speaker-avatar {
+      flex-shrink: 0;
+      margin-right: 25px;
+    }
+    
+    .speaker-avatar img {
+      width: 160px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #667eea;
+      display: block;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+    }
+    
+    .speaker-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+    
+    .speaker-name {
+      color: #2c3e50;
+      font-weight: 600;
+      font-size: 1.3em;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+    
+    .speaker-affiliation {
+      color: #6c757d;
+      font-size: 1.15em;
+      margin-bottom: 15px;
+      line-height: 1.4;
+      text-align: left;
+      font-weight: 500;
+    }
+    
+    .speaker-bio {
+      color: #495057;
+      font-size: 1em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      text-align: justify;
+      text-justify: inter-word;
+      flex-grow: 1;
+    }
+    
+    .speaker-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 15px;
+      justify-content: flex-start;
+    }
+    
+    .speaker-links li a {
+      color: #667eea;
+      font-size: 1.3em;
+      transition: color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+    
+    .speaker-links li a:hover {
+      color: #3498db;
+      transform: translateY(-2px);
+    }
+    
     #footer {
       background: #2c3e50;
       color: white;
@@ -319,47 +420,47 @@
         padding: 40px 0;
       }
       
-      .organizer-list {
+      .organizer-list, .speaker-list {
         grid-template-columns: 1fr;
         gap: 20px;
         padding: 0 15px;
       }
       
-      .organizer-item {
+      .organizer-item, .speaker-item {
         flex-direction: column;
         text-align: center;
         padding: 25px 20px;
       }
       
-      .organizer-avatar {
+      .organizer-avatar, .speaker-avatar {
         margin-right: 0;
         margin-bottom: 20px;
       }
       
-      .organizer-avatar img {
+      .organizer-avatar img, .speaker-avatar img {
         width: 130px;
         height: 165px;
       }
       
-      .organizer-info {
+      .organizer-info, .speaker-info {
         text-align: center;
       }
       
-      .organizer-name {
+      .organizer-name, .speaker-name {
         text-align: center;
       }
       
-      .organizer-affiliation {
+      .organizer-affiliation, .speaker-affiliation {
         text-align: center;
         font-size: 1.1em; /* Adjusted for mobile */
       }
       
-      .organizer-bio {
+      .organizer-bio, .speaker-bio {
         font-size: 0.95em; /* Adjusted for mobile, still larger than before */
         text-align: center;
       }
       
-      .organizer-links {
+      .organizer-links, .speaker-links {
         justify-content: center;
       }
       
@@ -411,37 +512,37 @@
     
     /* Medium screens */
     @media (min-width: 769px) and (max-width: 1024px) {
-      .organizer-list {
+      .organizer-list, .speaker-list {
         grid-template-columns: 1fr;
         gap: 25px;
       }
       
-      .organizer-item {
+      .organizer-item, .speaker-item {
         padding: 25px;
       }
       
-      .organizer-avatar img {
+      .organizer-avatar img, .speaker-avatar img {
         width: 140px;
         height: 175px;
       }
       
-      .organizer-bio {
+      .organizer-bio, .speaker-bio {
         font-size: 0.95em; /* Slightly increased from 0.85em */
       }
       
-      .organizer-affiliation {
+      .organizer-affiliation, .speaker-affiliation {
         font-size: 1.1em; /* Adjusted for medium screens */
       }
     }
     
     /* Large screens */
     @media (min-width: 1025px) and (max-width: 1400px) {
-      .organizer-list {
+      .organizer-list, .speaker-list {
         grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
         gap: 30px;
       }
       
-      .organizer-avatar img {
+      .organizer-avatar img, .speaker-avatar img {
         width: 150px;
         height: 190px;
       }
@@ -449,12 +550,12 @@
     
     /* Extra large screens */
     @media (min-width: 1401px) {
-      .organizer-list {
+      .organizer-list, .speaker-list {
         grid-template-columns: repeat(auto-fit, minmax(650px, 1fr));
         gap: 35px;
       }
       
-      .organizer-avatar img {
+      .organizer-avatar img, .speaker-avatar img {
         width: 170px;
         height: 215px;
       }
@@ -478,6 +579,7 @@
           <li class="nav-item"><a class="nav-link" href="#intro">Introduction</a></li>
           <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
           <li class="nav-item"><a class="nav-link" href="#organizers">Organizers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#speakers">Invited Speakers</a></li>
         </ul>
       </div>
     </div>
@@ -709,6 +811,77 @@
         </div>
       </div>
     </div>
+
+    <div id="speakers" class="section">
+      <div class="container">
+        <h2>Invited Speakers</h2>
+        <div class="speaker-list">
+          <div class="speaker-item">
+            <div class="speaker-avatar">
+              <img src="assets/images/avatars/chizhang.jpg" alt="Chi Zhang">
+            </div>
+            <div class="speaker-info">
+              <h5 class="speaker-name">Chi Zhang</h5>
+              <p class="speaker-affiliation">Assistant Professor at Peking University</p>
+              <p class="speaker-bio">Dr. Chi Zhang is an Assistant Professor at Peking University, focusing on multimodal AI and embodied intelligence. His research spans GUI automation, visual reasoning, and human-computer interaction, with particular expertise in developing intelligent agents that can understand and interact with digital interfaces.</p>
+              <ul class="speaker-links">
+                <li><a href="https://icoz69.github.io/" target="_blank"><i class="fa fa-house"></i></a></li>
+                <li><a href="https://scholar.google.com/citations?user=example" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="https://github.com/icoz69" target="_blank"><i class="fab fa-github"></i></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="speaker-item">
+            <div class="speaker-avatar">
+              <img src="assets/images/avatars/ziweiliu.jpg" alt="Ziwei Liu">
+            </div>
+            <div class="speaker-info">
+              <h5 class="speaker-name">Ziwei Liu</h5>
+              <p class="speaker-affiliation">Assistant Professor at Nanyang Technological University</p>
+              <p class="speaker-bio">Dr. Ziwei Liu is an Assistant Professor at NTU and leads the LMMs-Lab initiative. His research focuses on large multimodal models, computer vision, and machine learning. He has made significant contributions to visual understanding, generative models, and multimodal intelligence systems.</p>
+              <ul class="speaker-links">
+                <li><a href="https://liuziwei7.github.io/" target="_blank"><i class="fa fa-house"></i></a></li>
+                <li><a href="https://scholar.google.com/citations?user=lc45xlcAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="https://github.com/liuziwei7" target="_blank"><i class="fab fa-github"></i></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="speaker-item">
+            <div class="speaker-avatar">
+              <img src="assets/images/avatars/kaiweichang.jpg" alt="Kai-Wei Chang">
+            </div>
+            <div class="speaker-info">
+              <h5 class="speaker-name">Kai-Wei Chang</h5>
+              <p class="speaker-affiliation">Associate Professor at University of California, Los Angeles</p>
+              <p class="speaker-bio">Dr. Kai-Wei Chang is an Associate Professor at UCLA specializing in natural language processing, machine learning, and multimodal reasoning. His research particularly focuses on mathematical reasoning, structured prediction, and developing robust AI systems that can handle complex reasoning tasks.</p>
+              <ul class="speaker-links">
+                <li><a href="https://web.cs.ucla.edu/~kwchang/" target="_blank"><i class="fa fa-house"></i></a></li>
+                <li><a href="https://scholar.google.com/citations?user=example" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="https://github.com/kwchang" target="_blank"><i class="fab fa-github"></i></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="speaker-item">
+            <div class="speaker-avatar">
+              <img src="assets/images/avatars/junsongyuan.jpg" alt="Junsong Yuan">
+            </div>
+            <div class="speaker-info">
+              <h5 class="speaker-name">Junsong Yuan</h5>
+              <p class="speaker-affiliation">Professor at University at Buffalo, SUNY</p>
+              <p class="speaker-bio">Dr. Junsong Yuan is a Professor at University at Buffalo, specializing in computer vision, pattern recognition, and multimedia analysis. His research encompasses video understanding, human activity recognition, and multimodal learning with applications in surveillance, healthcare, and autonomous systems.</p>
+              <ul class="speaker-links">
+                <li><a href="https://cse.buffalo.edu/~jsyuan/" target="_blank"><i class="fa fa-house"></i></a></li>
+                <li><a href="https://scholar.google.com/citations?user=example" target="_blank"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="https://github.com/jsyuan" target="_blank"><i class="fab fa-github"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div id="footer">
@@ -721,7 +894,7 @@
     $(document).on('scroll', function() {
       let currentOffset = $(window).scrollTop() + 80,
           currentSection = "",
-          sections = ["intro", "schedule", "organizers"];
+          sections = ["intro", "schedule", "organizers", "speakers"];
 
       for (let i = 0; i < sections.length; ++i) {
         if ($('#' + sections[i]).length && currentOffset < $('#' + sections[i]).offset().top) {
