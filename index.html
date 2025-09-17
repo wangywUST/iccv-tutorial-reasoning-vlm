@@ -142,17 +142,15 @@
     
     .organizer-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
       gap: 30px;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
     }
     
     .organizer-item {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
       padding: 30px;
       background: white;
       border-radius: 15px;
@@ -168,12 +166,12 @@
     
     .organizer-avatar {
       flex-shrink: 0;
-      margin-bottom: 20px;
+      margin-right: 25px;
     }
     
     .organizer-avatar img {
-      width: 120px;
-      height: 150px;
+      width: 160px;
+      height: 200px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid #667eea;
@@ -190,9 +188,8 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      text-align: center;
-      width: 100%;
+      justify-content: center;
+      text-align: left;
     }
     
     .organizer-name {
@@ -200,7 +197,7 @@
       font-weight: 600;
       font-size: 1.3em;
       margin-bottom: 8px;
-      text-align: center;
+      text-align: left;
     }
     
     .organizer-affiliation {
@@ -208,7 +205,7 @@
       font-size: 1em;
       margin-bottom: 15px;
       line-height: 1.4;
-      text-align: center;
+      text-align: left;
     }
     
     .organizer-bio {
@@ -227,7 +224,7 @@
       margin: 0;
       display: flex;
       gap: 15px;
-      justify-content: center;
+      justify-content: flex-start;
     }
     
     .organizer-links li a {
@@ -304,17 +301,40 @@
       }
       
       .organizer-item {
+        flex-direction: column;
+        text-align: center;
         padding: 25px 20px;
       }
       
+      .organizer-avatar {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+      
       .organizer-avatar img {
-        width: 100px;
-        height: 125px;
+        width: 130px;
+        height: 165px;
+      }
+      
+      .organizer-info {
+        text-align: center;
+      }
+      
+      .organizer-name {
+        text-align: center;
+      }
+      
+      .organizer-affiliation {
+        text-align: center;
       }
       
       .organizer-bio {
         font-size: 0.85em;
         text-align: center;
+      }
+      
+      .organizer-links {
+        justify-content: center;
       }
       
       .navbar-brand {
@@ -353,9 +373,9 @@
     }
     
     /* Medium screens */
-    @media (min-width: 769px) and (max-width: 992px) {
+    @media (min-width: 769px) and (max-width: 1024px) {
       .organizer-list {
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: 1fr;
         gap: 25px;
       }
       
@@ -364,8 +384,8 @@
       }
       
       .organizer-avatar img {
-        width: 110px;
-        height: 140px;
+        width: 140px;
+        height: 175px;
       }
       
       .organizer-bio {
@@ -374,15 +394,28 @@
     }
     
     /* Large screens */
-    @media (min-width: 1200px) {
+    @media (min-width: 1025px) and (max-width: 1400px) {
       .organizer-list {
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+        gap: 30px;
+      }
+      
+      .organizer-avatar img {
+        width: 150px;
+        height: 190px;
+      }
+    }
+    
+    /* Extra large screens */
+    @media (min-width: 1401px) {
+      .organizer-list {
+        grid-template-columns: repeat(auto-fit, minmax(650px, 1fr));
         gap: 35px;
       }
       
       .organizer-avatar img {
-        width: 130px;
-        height: 160px;
+        width: 170px;
+        height: 215px;
       }
     }
   </style>
