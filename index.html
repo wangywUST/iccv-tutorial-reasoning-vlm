@@ -190,6 +190,46 @@
       flex-direction: column;
       justify-content: center;
       text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .organizer-info::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -50px;
+      width: 350px;
+      height: 450px;
+      transform: translateY(-50%);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.08;
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    .organizer-info > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* University/Institution logos - using local SVG files */
+    .organizer-item[data-institution="uq"] .organizer-info::after {
+      background-image: url('assets/images/iccv.svg');
+    }
+    
+    .organizer-item[data-institution="lancaster"] .organizer-info::after {
+      background-image: url('assets/logos/lancaster-university.svg');
+    }
+    
+    .organizer-item[data-institution="ucmerced"] .organizer-info::after {
+      background-image: url('assets/logos/uc-merced.svg');
+    }
+    
+    .organizer-item[data-institution="google-deepmind"] .organizer-info::after {
+      background-image: url('assets/logos/google-deepmind.svg');
     }
     
     .organizer-name {
@@ -291,6 +331,46 @@
       flex-direction: column;
       justify-content: center;
       text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .speaker-info::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -50px;
+      width: 350px;
+      height: 450px;
+      transform: translateY(-50%);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.08;
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    .speaker-info > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Speaker institution logos - using local SVG files */
+    .speaker-item[data-institution="ucla"] .speaker-info::after {
+      background-image: url('assets/logos/ucla.svg');
+    }
+    
+    .speaker-item[data-institution="buffalo"] .speaker-info::after {
+      background-image: url('assets/logos/university-at-buffalo.svg');
+    }
+    
+    .speaker-item[data-institution="ntu"] .speaker-info::after {
+      background-image: url('assets/logos/ntu-singapore.svg');
+    }
+    
+    .speaker-item[data-institution="pku"] .speaker-info::after {
+      background-image: url('assets/logos/peking-university.svg');
     }
     
     .speaker-name {
@@ -498,15 +578,13 @@
         background-color: rgba(102, 126, 234, 0.1);
       }
       
-      /* Mobile abstract adjustments */
-      .abstract-toggle {
-        font-size: 0.8em;
-        margin-left: 5px;
-      }
-      
-      .abstract-content {
-        padding: 12px;
-        font-size: 0.9em;
+      /* Mobile responsive adjustments for background logos */
+      .organizer-info::after,
+      .speaker-info::after {
+        width: 250px;
+        height: 320px;
+        right: -30px;
+        opacity: 0.05;
       }
     }
     
@@ -532,6 +610,14 @@
       
       .organizer-affiliation, .speaker-affiliation {
         font-size: 1.1em; /* Adjusted for medium screens */
+      }
+      
+      .organizer-info::after,
+      .speaker-info::after {
+        width: 300px;
+        height: 380px;
+        right: -40px;
+        opacity: 0.06;
       }
     }
     
@@ -748,7 +834,7 @@
       <div class="container">
         <h2>Organizers</h2>
         <div class="organizer-list">
-          <div class="organizer-item">
+          <div class="organizer-item" data-institution="uq">
             <div class="organizer-avatar">
               <img src="assets/images/avatars/yujuncai.png" alt="Yujun Cai">
             </div>
@@ -764,7 +850,7 @@
             </div>
           </div>
 
-          <div class="organizer-item">
+          <div class="organizer-item" data-institution="lancaster">
             <div class="organizer-avatar">
               <img src="assets/images/avatars/junliu.jpg" alt="Jun Liu">
             </div>
@@ -779,7 +865,7 @@
             </div>
           </div>
 
-          <div class="organizer-item">
+          <div class="organizer-item" data-institution="ucmerced">
             <div class="organizer-avatar">
               <img src="assets/images/avatars/yiweiwang.jpg" alt="Yiwei Wang">
             </div>
@@ -794,7 +880,7 @@
             </div>
           </div>
 
-          <div class="organizer-item">
+          <div class="organizer-item" data-institution="google-deepmind">
             <div class="organizer-avatar">
               <img src="assets/images/avatars/minghsuanyang.jpg" alt="Ming-Hsuan Yang">
             </div>
@@ -817,7 +903,7 @@
         <h2>Invited Speakers</h2>
         <div class="speaker-list">
 
-          <div class="speaker-item">
+          <div class="speaker-item" data-institution="ucla">
             <div class="speaker-avatar">
               <img src="assets/images/avatars/kaiweichang.jpg" alt="Kai-Wei Chang">
             </div>
@@ -833,7 +919,7 @@
             </div>
           </div>
 
-          <div class="speaker-item">
+          <div class="speaker-item" data-institution="buffalo">
             <div class="speaker-avatar">
               <img src="assets/images/avatars/junsongyuan.jpg" alt="Junsong Yuan">
             </div>
@@ -849,7 +935,7 @@
             </div>
           </div>
 
-          <div class="speaker-item">
+          <div class="speaker-item" data-institution="ntu">
             <div class="speaker-avatar">
               <img src="assets/images/avatars/ziweiliu.png" alt="Ziwei Liu">
             </div>
@@ -865,7 +951,7 @@
             </div>
           </div>
 
-          <div class="speaker-item">
+          <div class="speaker-item" data-institution="pku">
             <div class="speaker-avatar">
               <img src="assets/images/avatars/chizhang.jpg" alt="Chi Zhang">
             </div>
