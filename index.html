@@ -281,6 +281,42 @@
       color: #2c3e50;
     }
     
+    /* Abstract toggle styles */
+    .abstract-toggle {
+      border-color: #667eea;
+      color: #667eea;
+      padding: 4px 8px;
+      font-size: 0.8em;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      margin-left: 10px;
+    }
+    
+    .abstract-toggle:hover {
+      background-color: #667eea;
+      border-color: #667eea;
+      color: white;
+    }
+    
+    .abstract-toggle[aria-expanded="true"] i {
+      transform: rotate(180deg);
+    }
+    
+    .abstract-toggle i {
+      transition: transform 0.3s ease;
+    }
+    
+    .abstract-content {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+      font-size: 0.95em;
+      line-height: 1.6;
+      color: #495057;
+    }
+    
     /* Responsive adjustments */
     @media (max-width: 768px) {
       #hero h1 {
@@ -371,6 +407,18 @@
       
       .navbar-nav .nav-link:hover {
         background-color: rgba(102, 126, 234, 0.1);
+      }
+      
+      /* Mobile abstract adjustments */
+      .abstract-toggle {
+        padding: 3px 6px;
+        font-size: 0.7em;
+        margin-left: 5px;
+      }
+      
+      .abstract-content {
+        padding: 12px;
+        font-size: 0.9em;
       }
     }
     
@@ -485,7 +533,17 @@
               <tr>
                 <td class="time">8:30 - 8:40</td>
                 <td class="programme">
-                  <p class="title">Opening Remark: Motivation and Overview</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <p class="title mb-0">Opening Remark: Motivation and Overview</p>
+                    <button class="btn btn-sm btn-outline-primary abstract-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-1" aria-expanded="false" aria-controls="abstract-1">
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                  </div>
+                  <div class="collapse mt-2" id="abstract-1">
+                    <div class="abstract-content">
+                      <strong>Abstract:</strong> Welcome to our comprehensive tutorial on reasoning in vision-language models. This opening session will set the stage by discussing the motivation behind developing reasoning capabilities in VLMs and provide an overview of the day's agenda, highlighting key challenges and opportunities in the field.
+                    </div>
+                  </div>
                 </td>
                 <td class="speaker">
                   <p class="speaker-text"><a href="https://vanoracai.github.io/" target="_blank">Yujun Cai</a></p>
@@ -495,7 +553,17 @@
               <tr>
                 <td class="time">8:40 - 9:00</td>
                 <td class="programme">
-                  <p class="title">Invited Talk: Result Announcement and Award Ceremony of Video-TT Challenge: Towards Advanced Video Reasoning and Understanding (https://sites.google.com/view/video-tt-challenge)</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <p class="title mb-0">Invited Talk: Result Announcement and Award Ceremony of Video-TT Challenge: Towards Advanced Video Reasoning and Understanding</p>
+                    <button class="btn btn-sm btn-outline-primary abstract-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-2" aria-expanded="false" aria-controls="abstract-2">
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                  </div>
+                  <div class="collapse mt-2" id="abstract-2">
+                    <div class="abstract-content">
+                      <strong>Abstract:</strong> Join us for the exciting conclusion of the Video-TT Challenge, where we will announce results and recognize outstanding achievements in video reasoning and understanding. This session will showcase innovative approaches from participating teams and highlight breakthrough methodologies that advance the state-of-the-art in video analysis and temporal reasoning.
+                    </div>
+                  </div>
                 </td>
                 <td class="speaker">
                   <p class="speaker-text"><a href="https://sites.google.com/view/video-tt-challenge" target="_blank">Yuhao Dong, Yuanhan Zhang, Ziwei Liu, and Representative Teams </a></p>
@@ -505,7 +573,17 @@
               <tr>
                 <td class="time">9:00 - 9:30</td>
                 <td class="programme">
-                  <p class="title">Invited Talk: Reasoning in Multimodal GUI Agents: An Exploration-Driven Perspective</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <p class="title mb-0">Invited Talk: Reasoning in Multimodal GUI Agents: An Exploration-Driven Perspective</p>
+                    <button class="btn btn-sm btn-outline-primary abstract-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-3" aria-expanded="false" aria-controls="abstract-3">
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                  </div>
+                  <div class="collapse mt-2" id="abstract-3">
+                    <div class="abstract-content">
+                      <strong>Abstract:</strong> This talk explores how multimodal GUI agents can develop sophisticated reasoning capabilities through exploration-driven learning. We will discuss novel approaches to understanding user interfaces, spatial relationships, and interaction patterns, highlighting how agents can learn to navigate complex digital environments through systematic exploration and reasoning.
+                    </div>
+                  </div>
                 </td>
                 <td class="speaker">
                   <p class="speaker-text"><a href="https://icoz69.github.io/" target="_blank">Chi Zhang</a></p>
@@ -515,7 +593,17 @@
               <tr>
                 <td class="time">9:30 - 10:05</td>
                 <td class="programme">
-                  <p class="title">Invited Talk: LMMs-Lab: Building Multimodal Intelligence</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <p class="title mb-0">Invited Talk: LMMs-Lab: Building Multimodal Intelligence</p>
+                    <button class="btn btn-sm btn-outline-primary abstract-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-4" aria-expanded="false" aria-controls="abstract-4">
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                  </div>
+                  <div class="collapse mt-2" id="abstract-4">
+                    <div class="abstract-content">
+                      <strong>Abstract:</strong> Discover the LMMs-Lab initiative and its comprehensive approach to building multimodal intelligence systems. This presentation will cover the lab's research framework, key findings in large multimodal model development, and practical insights for creating robust vision-language systems that can handle diverse real-world scenarios.
+                    </div>
+                  </div>
                 </td>
                 <td class="speaker">
                   <p class="speaker-text"><a href="https://liuziwei7.github.io/" target="_blank">Ziwei Liu</a></p>
@@ -525,7 +613,17 @@
               <tr>
                 <td class="time">10:05 - 10:40</td>
                 <td class="programme">
-                  <p class="title">Invited Talk: Mathematical Reasoning in Visual Contexts</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <p class="title mb-0">Invited Talk: Mathematical Reasoning in Visual Contexts</p>
+                    <button class="btn btn-sm btn-outline-primary abstract-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-5" aria-expanded="false" aria-controls="abstract-5">
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                  </div>
+                  <div class="collapse mt-2" id="abstract-5">
+                    <div class="abstract-content">
+                      <strong>Abstract:</strong> Mathematical reasoning presents unique challenges when combined with visual information. This talk will explore how vision-language models can be enhanced to solve mathematical problems that require understanding geometric relationships, interpreting charts and graphs, and reasoning about spatial configurations in mathematical contexts.
+                    </div>
+                  </div>
                 </td>
                 <td class="speaker">
                   <p class="speaker-text"><a href="https://web.cs.ucla.edu/~kwchang/" target="_blank">Kai-Wei Chang</a></p>
@@ -535,7 +633,17 @@
               <tr>
                 <td class="time">10:40 - 11:15</td>
                 <td class="programme">
-                  <p class="title">TBD</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <p class="title mb-0">TBD</p>
+                    <button class="btn btn-sm btn-outline-primary abstract-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-6" aria-expanded="false" aria-controls="abstract-6">
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                  </div>
+                  <div class="collapse mt-2" id="abstract-6">
+                    <div class="abstract-content">
+                      <strong>Abstract:</strong> Session details and abstract will be announced soon. Stay tuned for updates on this exciting presentation that will contribute to our comprehensive exploration of vision-language reasoning capabilities.
+                    </div>
+                  </div>
                 </td>
                 <td class="speaker">
                   <p class="speaker-text"><a href="https://cse.buffalo.edu/~jsyuan/" target="_blank">Junsong Yuan</a></p>
@@ -545,7 +653,17 @@
               <tr>
                 <td class="time">11:15 - 11:50</td>
                 <td class="programme">
-                  <p class="title">TBD</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <p class="title mb-0">TBD</p>
+                    <button class="btn btn-sm btn-outline-primary abstract-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-7" aria-expanded="false" aria-controls="abstract-7">
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                  </div>
+                  <div class="collapse mt-2" id="abstract-7">
+                    <div class="abstract-content">
+                      <strong>Abstract:</strong> Session details and abstract will be announced soon. This presentation will complement our tutorial series with additional insights into advanced vision-language reasoning techniques and methodologies.
+                    </div>
+                  </div>
                 </td>
                 <td class="speaker">
                   <p class="speaker-text"><a href="https://faculty.ucmerced.edu/mhyang/" target="_blank">Ming-Hsuan Yang</a></p>
@@ -555,7 +673,17 @@
               <tr>
                 <td class="time">11:50 - 12:00</td>
                 <td class="programme">
-                  <p class="title">Closing Remark.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <p class="title mb-0">Closing Remark</p>
+                    <button class="btn btn-sm btn-outline-primary abstract-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-8" aria-expanded="false" aria-controls="abstract-8">
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                  </div>
+                  <div class="collapse mt-2" id="abstract-8">
+                    <div class="abstract-content">
+                      <strong>Abstract:</strong> Our tutorial concludes with a synthesis of key insights, future research directions, and practical takeaways. This closing session will summarize the day's discussions, highlight emerging trends in vision-language reasoning, and provide guidance for researchers and practitioners looking to advance this exciting field.
+                    </div>
+                  </div>
                 </td>                
                 <td class="speaker">
                   <p class="speaker-text"><a href="https://wangywust.github.io/" target="_blank">Yiwei Wang</a></p>
