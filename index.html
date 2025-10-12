@@ -486,7 +486,7 @@
       color: #2c3e50;
     }
     
-    /* Updated abstract toggle styles */
+/* Updated abstract toggle styles */
     .abstract-toggle {
       color: #3e7b54;
       text-decoration: underline;
@@ -500,6 +500,19 @@
       color: #4a7c59;
     }
     
+    /* Slides link styles */
+    .slides-link {
+      color: #3e7b54;
+      text-decoration: underline;
+      font-size: 0.9em;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      margin-left: 10px;
+    }
+    
+    .slides-link:hover {
+      color: #4a7c59;
+    }
     .abstract-content {
       background-color: #f8f9fa;
       padding: 15px;
@@ -744,7 +757,7 @@
               <tr>
                 <td class="time">8:30 - 8:35</td>
                 <td class="programme">
-                  <p class="title mb-0">Opening Remark: Motivation and Overview <span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-1" aria-expanded="false" aria-controls="abstract-1">[Abstract]</span></p>
+                  <p class="title mb-0">Opening Remark: Motivation and Overview <span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-1" aria-expanded="false" aria-controls="abstract-1">[Abstract]</span><a href="assets/slides/opening-remark.pdf" class="slides-link" target="_blank" download>[Slides]</a></p>
                   <div class="collapse mt-2" id="abstract-1">
                     <div class="abstract-content">
                       <strong>Abstract:</strong> Welcome to our comprehensive tutorial on reasoning in vision-language models. This opening session will set the stage by discussing the motivation behind developing reasoning capabilities in VLMs and provide an overview of the day's agenda, highlighting key challenges and opportunities in the field.
@@ -759,7 +772,7 @@
               <tr>
                 <td class="time">8:35 - 9:00</td>
                 <td class="programme">
-                  <p class="title mb-0">Video-TT Challenge: Towards Advanced Video Reasoning and Understanding <span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-2" aria-expanded="false" aria-controls="abstract-2">[Abstract]</span></p>
+                  <p class="title mb-0">Video-TT Challenge: Towards Advanced Video Reasoning and Understanding <span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-2" aria-expanded="false" aria-controls="abstract-2">[Abstract]</span><a href="assets/slides/video-tt-challenge.pdf" class="slides-link" target="_blank" download>[Slides]</a></p>
                   <div class="collapse mt-2" id="abstract-2">
                     <div class="abstract-content">
                       <strong>Abstract:</strong> Join us for the exciting conclusion of the Video-TT Challenge, where we will announce results and recognize outstanding achievements in video reasoning and understanding. This session will showcase innovative approaches from participating teams and highlight breakthrough methodologies that advance the state-of-the-art in video analysis and temporal reasoning. See more details at: https://sites.google.com/view/video-tt-challenge
@@ -774,7 +787,7 @@
               <tr>
                 <td class="time">9:00 - 9:35</td>
                 <td class="programme">
-                  <p class="title mb-0">Invited Talk: Reasoning in Multimodal GUI Agents: An Exploration-Driven Perspective <span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-3" aria-expanded="false" aria-controls="abstract-3">[Abstract]</span></p>
+                  <p class="title mb-0">Invited Talk: Reasoning in Multimodal GUI Agents: An Exploration-Driven Perspective <span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-3" aria-expanded="false" aria-controls="abstract-3">[Abstract]</span><a href="assets/slides/chi-zhang-gui-agents.pdf" class="slides-link" target="_blank" download>[Slides]</a></p>
                   <div class="collapse mt-2" id="abstract-3">
                     <div class="abstract-content">
                       <strong>Abstract:</strong> This talk explores how multimodal GUI agents can develop sophisticated reasoning capabilities through exploration-driven learning. We will discuss novel approaches to understanding user interfaces, spatial relationships, and interaction patterns, highlighting how agents can learn to navigate complex digital environments through systematic exploration and reasoning.
@@ -789,7 +802,7 @@
               <tr>
                 <td class="time">9:35 - 10:10</td>
                 <td class="programme">
-                  <p class="title mb-0">Invited Talk: LMMs-Lab: Building Multimodal Intelligence <span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-4" aria-expanded="false" aria-controls="abstract-4">[Abstract]</span></p>
+                  <p class="title mb-0">Invited Talk: LMMs-Lab: Building Multimodal Intelligence <span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-4" aria-expanded="false" aria-controls="abstract-4">[Abstract]</span><a href="assets/slides/ziwei-liu-lmms-lab.pdf" class="slides-link" target="_blank" download>[Slides]</a></p>
                   <div class="collapse mt-2" id="abstract-4">
                     <div class="abstract-content">
                       <strong>Abstract:</strong> Discover the LMMs-Lab initiative and its comprehensive approach to building multimodal intelligence systems. This presentation will cover the lab's research framework, key findings in large multimodal model development, and practical insights for creating robust vision-language systems that can handle diverse real-world scenarios.
@@ -804,7 +817,7 @@
               <tr>
                 <td class="time">10:10 - 10:45</td>
                 <td class="programme">
-                  <p class="title mb-0">Invited Talk: Mathematical Reasoning in Visual Contexts <span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-5" aria-expanded="false" aria-controls="abstract-5">[Abstract]</span></p>
+                  <p class="title mb-0">Invited Talk: Mathematical Reasoning in Visual Contexts <span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-5" aria-expanded="false" aria-controls="abstract-5">[Abstract]</span><a href="assets/slides/kai-wei-chang-math-reasoning.pdf" class="slides-link" target="_blank" download>[Slides]</a></p>
                   <div class="collapse mt-2" id="abstract-5">
                     <div class="abstract-content">
                       <strong>Abstract:</strong> Mathematical reasoning presents unique challenges when combined with visual information. This talk will explore how vision-language models can be enhanced to solve mathematical problems that require understanding geometric relationships, interpreting charts and graphs, and reasoning about spatial configurations in mathematical contexts.
@@ -819,7 +832,7 @@
               <tr>
                 <td class="time">10:45 - 11:20</td>
                 <td class="programme">
-                  <p class="title mb-0">Invited Talk: Chain-of-Look Visual Reasoning <span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-6" aria-expanded="false" aria-controls="abstract-6">[Abstract]</span></p>
+                  <p class="title mb-0">Invited Talk: Chain-of-Look Visual Reasoning <span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-6" aria-expanded="false" aria-controls="abstract-6">[Abstract]</span><a href="assets/slides/junsong-yuan-chain-of-look.pdf" class="slides-link" target="_blank" download>[Slides]</a></p>
                   <div class="collapse mt-2" id="abstract-6">
                     <div class="abstract-content">
                       <strong>Abstract:</strong> Session details and abstract will be announced soon. Stay tuned for updates on this exciting presentation that will contribute to our comprehensive exploration of vision-language reasoning capabilities.
@@ -834,7 +847,7 @@
               <tr>
                 <td class="time">11:20 - 11:55</td>
                 <td class="programme">
-                  <p class="title mb-0">Invited Talk: Grounding Anything in Images and Videos for Comprehensive Reasoning<span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-7" aria-expanded="false" aria-controls="abstract-7">[Abstract]</span></p>
+                  <p class="title mb-0">Invited Talk: Grounding Anything in Images and Videos for Comprehensive Reasoning<span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-7" aria-expanded="false" aria-controls="abstract-7">[Abstract]</span><a href="assets/slides/ming-hsuan-yang-grounding.pdf" class="slides-link" target="_blank" download>[Slides]</a></p>
                   <div class="collapse mt-2" id="abstract-7">
                     <div class="abstract-content">
                       <strong>Abstract:</strong> Session details and abstract will be announced soon. This presentation will complement our tutorial series with additional insights into advanced vision-language reasoning techniques and methodologies.
@@ -849,7 +862,7 @@
               <tr>
                 <td class="time">11:55 - 12:00</td>
                 <td class="programme">
-                  <p class="title mb-0">Closing Remark <span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-8" aria-expanded="false" aria-controls="abstract-8">[Abstract]</span></p>
+                  <p class="title mb-0">Closing Remark <span class="abstract-toggle" data-bs-toggle="collapse" data-bs-target="#abstract-8" aria-expanded="false" aria-controls="abstract-8">[Abstract]</span><a href="assets/slides/closing-remark.pdf" class="slides-link" target="_blank" download>[Slides]</a></p>
                   <div class="collapse mt-2" id="abstract-8">
                     <div class="abstract-content">
                       <strong>Abstract:</strong> Our tutorial concludes with a synthesis of key insights, future research directions, and practical takeaways. This closing session will summarize the day's discussions, highlight emerging trends in vision-language reasoning, and provide guidance for researchers and practitioners looking to advance this exciting field.
