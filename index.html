@@ -1197,6 +1197,15 @@
     </div>
   </div>
 
+  <div id="gallery" class="section">
+    <div class="container">
+      <h2>Gallery</h2>
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Photos will be loaded dynamically -->
+      </div>
+    </div>
+  </div>
+
   <div id="footer">
     <div class="container">
       <p>&copy;2025 <em>Towards Comprehensive Reasoning in Vision-Language Models</em> ICCV Tutorial</p>
@@ -1207,7 +1216,7 @@
     $(document).on('scroll', function() {
       let currentOffset = $(window).scrollTop() + 80,
           currentSection = "",
-          sections = ["intro", "schedule", "organizers", "speakers"];
+          sections = ["intro", "schedule", "organizers", "speakers", "gallery"];
 
       for (let i = 0; i < sections.length; ++i) {
         if ($('#' + sections[i]).length && currentOffset < $('#' + sections[i]).offset().top) {
@@ -1231,16 +1240,15 @@
     (function() {
       const galleryFolder = 'assets/gallery/'; // 修改为你的照片文件夹路径
       const photoFiles = [
-        'https://picsum.photos/400/300?random=1',
-        'https://picsum.photos/400/500?random=2',
-        'https://picsum.photos/400/400?random=3',
-        'https://picsum.photos/400/300?random=4',
-        'https://picsum.photos/400/600?random=5',
-        'https://picsum.photos/400/400?random=6',
-        'https://picsum.photos/400/300?random=7',
-        'https://picsum.photos/400/500?random=8',
-        'https://picsum.photos/400/400?random=9',
-        'https://picsum.photos/400/300?random=10',
+        'photo1.jpg',
+        'photo2.jpg',
+        'photo3.jpg',
+        'photo4.jpg',
+        'photo5.jpg',
+        'photo6.jpg',
+        'photo7.jpg',
+        'photo8.jpg',
+        'photo9.jpg',
         // 添加更多照片文件名
       ];
 
