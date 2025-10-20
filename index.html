@@ -690,6 +690,146 @@
         height: 215px;
       }
     }
+
+    /* Gallery Section */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+      background: #f0f0f0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Create varied heights for Instagram-style layout */
+    .gallery-item:nth-child(5n+1) {
+      grid-row: span 2;
+    }
+
+    .gallery-item:nth-child(7n+3) {
+      grid-row: span 2;
+    }
+
+    /* Lightbox */
+    .gallery-lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .gallery-lightbox.active {
+      display: flex;
+    }
+
+    .gallery-lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+    }
+
+    .gallery-lightbox-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      z-index: 10000;
+    }
+
+    .gallery-lightbox-close:hover {
+      transform: scale(1.2);
+    }
+
+    .gallery-lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 50px;
+      cursor: pointer;
+      padding: 20px;
+      user-select: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-lightbox-nav:hover {
+      opacity: 0.7;
+    }
+
+    .gallery-lightbox-prev {
+      left: 20px;
+    }
+
+    .gallery-lightbox-next {
+      right: 20px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+      }
+      
+      .gallery-item:nth-child(5n+1),
+      .gallery-item:nth-child(7n+3) {
+        grid-row: span 1;
+      }
+      
+      .gallery-lightbox-close {
+        top: 15px;
+        right: 15px;
+        font-size: 30px;
+      }
+      
+      .gallery-lightbox-nav {
+        font-size: 35px;
+        padding: 10px;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+    }
+
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
@@ -710,6 +850,7 @@
           <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
           <li class="nav-item"><a class="nav-link" href="#organizers">Organizers</a></li>
           <li class="nav-item"><a class="nav-link" href="#speakers">Invited Speakers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
           <li class="nav-item">
             <a class="nav-link zoom-button" href="https://us06web.zoom.us/j/84527259223?pwd=Su2vWJlFvh4oIAldS2dbc0lwveiZ7I.1" target="_blank">
               <i class="fas fa-video"></i> Join Zoom
@@ -1085,6 +1226,95 @@
         }
       });
     });
+
+    // Gallery Photo Wall
+    (function() {
+      const galleryFolder = 'assets/images/gallery/'; // 修改为你的照片文件夹路径
+      const photoFiles = [
+        'photo1.jpg',
+        'photo2.jpg',
+        'photo3.jpg',
+        'photo4.jpg',
+        'photo5.jpg',
+        'photo6.jpg',
+        'photo7.jpg',
+        'photo8.jpg',
+        'photo9.jpg',
+        // 添加更多照片文件名
+      ];
+
+      const galleryGrid = document.getElementById('galleryGrid');
+      let currentImageIndex = 0;
+
+      // Create lightbox
+      const lightbox = document.createElement('div');
+      lightbox.className = 'gallery-lightbox';
+      lightbox.innerHTML = `
+        <span class="gallery-lightbox-close">&times;</span>
+        <span class="gallery-lightbox-nav gallery-lightbox-prev">&#10094;</span>
+        <img src="" alt="Gallery Image">
+        <span class="gallery-lightbox-nav gallery-lightbox-next">&#10095;</span>
+      `;
+      document.body.appendChild(lightbox);
+
+      const lightboxImg = lightbox.querySelector('img');
+      const closeBtn = lightbox.querySelector('.gallery-lightbox-close');
+      const prevBtn = lightbox.querySelector('.gallery-lightbox-prev');
+      const nextBtn = lightbox.querySelector('.gallery-lightbox-next');
+
+      // Load photos
+      photoFiles.forEach((photo, index) => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        item.innerHTML = `<img src="${galleryFolder}${photo}" alt="Gallery Photo ${index + 1}">`;
+        item.addEventListener('click', () => openLightbox(index));
+        galleryGrid.appendChild(item);
+      });
+
+      function openLightbox(index) {
+        currentImageIndex = index;
+        lightboxImg.src = galleryFolder + photoFiles[index];
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function showNext() {
+        currentImageIndex = (currentImageIndex + 1) % photoFiles.length;
+        lightboxImg.src = galleryFolder + photoFiles[currentImageIndex];
+      }
+
+      function showPrev() {
+        currentImageIndex = (currentImageIndex - 1 + photoFiles.length) % photoFiles.length;
+        lightboxImg.src = galleryFolder + photoFiles[currentImageIndex];
+      }
+
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showNext();
+      });
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showPrev();
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+      });
+    })();
+
   </script>
 </body>
 </html>
